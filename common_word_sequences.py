@@ -3,6 +3,7 @@ import os
 import collections
 import re
 import nltk
+import string
 from multiprocessing import Pool
 
 def clean_text(text):
@@ -16,7 +17,7 @@ def clean_text(text):
     text = re.sub(r'http*\S+', ' ', text)
     text = re.sub(r'@\S+', ' ', text)
     text = re.sub(r'#\S+', ' ', text)
-    text = re.sub(r'\W+', ' ', text)
+    text = text.translate(str.maketrans('', '', string.punctuation))
     text = text.split()
     return text
 
