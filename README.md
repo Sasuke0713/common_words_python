@@ -16,14 +16,17 @@ OR
 Environment
 -----------
 1) Clone the repository:
+
 ```
 git clone https://github.com/kaewarren/most-common-sequences.git
+```
 
 2) Install Docker MacOS:
 
 https://docs.docker.com/docker-for-mac/install/
 
 3) Build Dockerfile:
+
 ```
 docker build -t common_word_sequences .
 ```
@@ -31,6 +34,7 @@ docker build -t common_word_sequences .
 4) Find docker image you ran `docker image ls` or take the output of the image id from the last line of the `docker build` command output where it says `Successfully built <random_string>`
 
 5) Run docker container:
+
 ```
 docker run -it <0c4959cb1b7f>
 ```
@@ -39,16 +43,16 @@ Testing
 -------
 Assuming you're running a MacBook
 
-1) Install python 3.9
+1) Build Dockerfile:
+
 ```
-brew install python@3.9
+docker build -f Dockerfile-pytest -t common_word_sequences_testing .
 ```
 
-2) Install pytest
+2) Find docker image you ran `docker image ls` or take the output of the image id from the last line of the `docker build` command output where it says `Successfully built <random_string>`
+
+3) Run docker container:
+
 ```
-pip3 install -U pytest
-```
-3) Test the code
-```
-pytest
+docker run -it <0c4959cb1b7f>
 ```

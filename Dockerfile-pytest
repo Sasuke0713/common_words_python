@@ -1,0 +1,10 @@
+FROM python:3.9-alpine
+
+RUN apk add build-base
+RUN adduser --system --disabled-password --home /home/app app
+RUN mkdir -p /home/app/common_words_python
+WORKDIR /home/app/common_words_python
+COPY . .
+RUN pip install --no-cache-dir -r requirements.txt
+
+CMD [ "python", "-m", "pytest" ]
